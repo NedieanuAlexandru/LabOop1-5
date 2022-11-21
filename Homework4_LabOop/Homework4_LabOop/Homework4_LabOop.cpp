@@ -9,8 +9,13 @@ class Person {
 public:
 	string name;
 	int age;
-	Person(string name, int age) {};
+
+	Person(string name, int age) {
+	    this->name = name;
+	    this->age = age
+	};
 };
+
 class GroupOfFriends {
 public:
 	string groupName;
@@ -18,26 +23,29 @@ public:
 
 	list<Person> createGroup() {
 		int nr = 0; 
-		list<Person> newGroupFriends;
-		cout << "Enter the number of Friends: "; cin >> nr;
+		list<Person> newGroup;
+		cout << "Enter nr of Friends: "; cin >> nr;
 		for (int i = 0; i < nr; i++) {
 			string name; int age;
 			cout << "Friend #" << i << " ";
 			cout << "Name = "; cin >> name;
 			cout << "Age = "; cin >> age;
-			newGroupFriends.push_back({ name, age });
+			newGroup.push_back({ name, age });
 		}
-		return newGroupFriends;
+		return newGroup;
 	}
+
 	void displayPersonsInGroup() {
 		for (Person person : friends) {
 			cout << person.name << " ";
 		}
 		cout << '\n';
 	}
+
 	void addPerson(Person personToBeAdded) {
 		friends.push_back(personToBeAdded);
 	}
+
 	void removePerson(Person personToBeRemoved) {
 		bool isFound = false;
 		for (Person person : friends) {
@@ -49,6 +57,7 @@ public:
 			friends.remove(personToBeRemoved);
 		else cout << "The person is not in the list \n";
 	}
+
 	void updatePerson(Person personToBeUpdated){ 
 		string newName; int newAge;
 		cout << "Enter Updated Data:\n";
@@ -67,36 +76,44 @@ public:
 //T 4.2
 class Student {
 private:
-	int note;
+	int grades;
 	string name;
+
 public:
-	void setNote(int n) {
+	void setGrades(int grades) {
 		note = n;
 	}
-	int getNote() {
-		return note;
+
+	int getGrades() {
+		return grades;
 	}
+
 	void setName(string n) {
 		name = n;
 	}
+
 	string getName() {
 		return name;
 	}
-	Student(int note, string name) {
-		this->note = note;
+
+	Student(int grades, string name) {
+		this->grades = grades;
 		this->name = name;
 	}
 };
+
 class StudentsGroup {
 private:
 	int studentsNumber;
 	list<Student> studentsList;
+
 public:
 	void showStudentsInGroup() {
 		for (Student student : studentsList) {
 			cout << student.getName() << "\n";
 		}
 	}
+
 	int getMaxGrade() {
 		int maxGrade = -1;
 		for (Student student : studentsList) {
@@ -105,6 +122,7 @@ public:
 		}
 		return maxGrade;
 	}
+
 	Student studentWithMaxGrade() {
 		int maxGrade = getMaxGrade();
 		for (Student student : studentsList) {
@@ -113,6 +131,7 @@ public:
 			}
 		}
 	}
+
 	//T4.3
 	Student firstStudentWithFirstGrade5() {
 		for (Student student : studentsList) {
@@ -130,18 +149,22 @@ public:
 	string getName() {
 		return this->name;
 	}
+
 	void setName(string name) {
 		this->name = name;
 	}
 };
+
 class Car {
 public:
 	int age;
 	Driver driver;
+
 	Car(int age, Driver driver) {
 		this->age = age;
 		this->driver = driver;
 	}
+
 	//T 4.6
 	string documentLicense;
 	string documentRegistration;
@@ -152,6 +175,7 @@ public:
 		return documentRegistration;
 	}
 };
+
 void exchangeDrivers(Car car1, Car car2) {
 	Driver auxDriver = car1.driver;
 	car1.driver = car2.driver;

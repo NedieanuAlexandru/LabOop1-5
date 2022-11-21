@@ -130,12 +130,12 @@
     <ClCompile Include="ComplexNumber.cpp" />
     <ClCompile Include="Homework3_OopLab.cpp" />
     <ClCompile Include="Student.cpp" />
-    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComplexNumber.h" />
     <ClInclude Include="Student.h" />
-    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Rectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

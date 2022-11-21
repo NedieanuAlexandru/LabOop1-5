@@ -4,6 +4,6 @@ using namespace std;
 #ifndef A_H
 #define A_H
 void test() {
-	cout << "Test function from a.h" << "\n";
+	cout << "Test from a.h" << "\n";
 }
 #endif // !A_h

@@ -5,6 +5,6 @@ using namespace std;
 #define B_H
 #include "a.h"
 void printText() {
-	cout << "Printing text from b.h" << "\n";
+	cout << "Print from b.h" << "\n";
 }
 #endif // !B_H

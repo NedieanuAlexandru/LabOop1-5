@@ -1,28 +1,28 @@
 #include <iostream>
-#include "Triangle.cpp"
+#include "Rectangle.cpp"
 #include "Student.cpp"
 #include "ComplexNumber.cpp"
 #include <list>
 #include <algorithm>
 using namespace std;
 
-void comparePerimeter(Triangle t1, Triangle t2) {
-	float p1 = t1.calculatePerimeter();
-	float p2 = t2.calculatePerimeter();
+void comparePerimeter(Rectangle r1, Rectangle r2) {
+	int p1 = r1.calculatePerimeter();
+	int p2 = r2.calculatePerimeter();
 
 	if (p1 < p2)
-		cout << "Perimeter 1 is less than Perimeter 2";
+		cout << "Perimeter 1 < 2";
 	else
-		cout << "Perimeter 1 is greater than Perimeter 2";
+		cout << "Perimeter 1 > 2";
 }
-void compareArea(Triangle t1, Triangle t2) {
-	float a1 = t1.calculateArea();
-	float a2 = t2.calculateArea();
+void compareArea(Rectangle r1, Rectangle r2) {
+	int a1 = r1.calculateArea();
+	int a2 = r2.calculateArea();
 
 	if (a1 < a2)
-		cout << "Area 1 is less than Area 2";
+		cout << "Area 1 < Area 2";
 	else
-		cout << "Area 1 is greater than Area 2";
+		cout << "Area 1 > Area 2";
 }
 void searchStudent(list<Student> students, Student theStudent) {
 	list<std::string>::iterator it;
@@ -37,13 +37,13 @@ void searchStudent(list<Student> students, Student theStudent) {
 
 void studentHighestGrade(list<Student> students) {
 	Student student;
-	for (const auto& studentIter : students) {
-		if (student.grade < studentIter.grade)
-			student = studentIter;
+	for (const auto& studentInt : students) {
+		if (student.grade < studentInt.grade)
+			student = studentInt;
 	}
-	for (const auto& studentIter : students) {
-		if(studentIter.grade == student.grade)
-		   cout << studentIter.name << " " << student.grade;
+	for (const auto& studentInt : students) {
+		if(studentInt.grade == student.grade)
+		   cout << studentInt.name << " " << student.grade;
 	}
 }
 
@@ -53,6 +53,7 @@ void sumComplex(ComplexNumber C1, ComplexNumber C2){
 	temp.imaginary = (C1.imaginary + C2.imaginary);
 	cout << temp.real << " " << temp.imaginary;
 }
+
 void prodComplex(ComplexNumber c1, ComplexNumber c2) {
 	int prod1 = c1.real * c2.real;
 	int prod2 = c1.imaginary * c2.imaginary;
@@ -64,15 +65,20 @@ void prodComplex(ComplexNumber c1, ComplexNumber c2) {
 
 int main() {
 
+    Rectangle r1 = Rectangle(5, 10);
+    Rectangle r2 = Rectangle(4, 8);
+    comparePerimeter(r1, r2);
+    compareArea(r1, r2);
+
 	Student st1 = Student("St1", "School1", 24, 7);
 	Student st2 = Student("St2", "School2", 17, 6);
 	Student st3 = Student("St3", "School3", 25, 10);
-	list<Student> students = { st1, st2, st3 };
-	students.sort();	 
-	searchStudent(students, st1);
+	list<Student> studentsList = { st1, st2, st3 };
+	studentsList.sort();
+	searchStudent(studentsList, st1);
 
-	list<Student> studentsAux = { st1, st2, st3 };
-	studentHighestGrade(studentsAux);
+	list<Student> students = { st1, st2, st3 };
+	studentHighestGrade(students);
 
 	ComplexNumber c1 = ComplexNumber(1, 2);
 	ComplexNumber c2 = ComplexNumber(3, 4);
